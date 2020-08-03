@@ -14,7 +14,7 @@ module.exports = {
     getConnection: function () {
         return new Promise(function (resolve, reject) {
             connPool.getConnection().then(function (connection) {
-                console.log('conn', connection);
+                console.log('connection', connection);
                 resolve(connection);
             }).catch(function (error) {
                 console.log('error', error);

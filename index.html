@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+    #book {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #book td,
+    #book th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #book tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #book tr:hover {
+        background-color: #ddd;
+    }
+
+    #book th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<body>
+    <div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="comment">Comment:</label>
+            <input type="text" id="comment" name="comment"><br><br>
+            <button onclick="Create()">Tạo mới</button>
+        </div>
+        <div>
+            <table id="book">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Qui</td>
+                        <td>Cai loz qe gì do</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function Create() {
+        var name = document.getElementById("fname").value;
+        var comment = document.getElementById("comment").value;
+        var options = {
+            host: url,
+            port: 8080,
+            path: '/create?name=' + name + '&comment=' + comment,
+            method: 'POST'
+        };
+
+    }
+</script>
+
+</html>
