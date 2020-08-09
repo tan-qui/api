@@ -17,26 +17,24 @@ exports.index = async function (request, response) {
 };
 
 exports.create = async function (request, response) {
-    //URL
-    const requestUrl = url.parse(request.url, true);
-    // Param
-    console.log('body', body);
-    console.log('request', request.body);
-    // Param
-    console.log('requestUrl', requestUrl);
-    var param = requestUrl.query;
-
     var conn;
+    var body = '';
     try {
-        // // connection DB 
-        // conn = await db.getConnection();
-        // // new query
-        // var query = "insert into guestbook value (?, ?)";
-        // // execute the query
-        // conn.query(query, [param.name, param.comment]);
-        // response.statusCode = 200;
-        // response.setHeader('Content-Type', 'application/json');
-        // response.end("Tạo thành công!");
+        // connection DB 
+        conn = await db.getConnection();
+        request.on('data', (chunk) => {
+            body += chunk;
+        }).on('end', () => {
+            // parse
+            body = JSON.parse(body);
+            // new query
+            var query = "insert into guestbook value (?, ?)";
+            // execute the query
+            conn.query(query, [body.name, body.comment]);
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'application/json');
+            response.end("Tạo mới thành công");
+        });
     } catch (error) {
         console.log('error', error);
         throw error;

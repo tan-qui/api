@@ -37,26 +37,36 @@
 <body>
     <div>
         <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="comment">Comment:</label>
-            <input type="text" id="comment" name="comment"><br><br>
-            <button onclick="Create()">Tạo mới</button>
-        </div>
-        <div>
             <table id="book">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Comment</th>
+                        <th>stt</th>
+                        <th>action</th>
+                        <th>method</th>
+                        <th>note</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Qui</td>
-                        <td>Cai loz qe gì do</td>
+                        <td>
+                            <a href="http://localhost:8000/guest-book">
+                                /guest-book
+                            </a>
+                        </td>
+                        <td>GET</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>/create</td>
+                        <td>POST</td>
+                        <td>
+                            {
+                            "name": "xyz",
+                            "comment" : "cai loz qe gi do"
+                            }
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -64,17 +74,6 @@
     </div>
 </body>
 <script>
-    function Create() {
-        var name = document.getElementById("fname").value;
-        var comment = document.getElementById("comment").value;
-        var options = {
-            host: url,
-            port: 8080,
-            path: '/create?name=' + name + '&comment=' + comment,
-            method: 'POST'
-        };
-
-    }
 </script>
 
 </html>
