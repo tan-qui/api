@@ -10,14 +10,21 @@ module.exports = http.createServer((request, response) => {
     if (requestUrl.pathname == '/' && request.method == 'GET') {
         service.index(request, response)
     }
-    // create
+    // create GET
+    if (requestUrl.pathname == '/create' && request.method == 'GET') {
+        service.createGET(request, response)
+    }
+    // create GET
     if (requestUrl.pathname == '/create' && request.method == 'POST') {
-        service.create(request, response)
+        service.createPOST(request, response)
     }
     // update
-    // if (requestUrl.pathname == '/update' && request.method == 'GET') {
-    //     service.create(request, response)
-    // }
+    if (requestUrl.pathname == '/update' && request.method == 'GET') {
+        service.updateGET(request, response)
+    }
+    if (requestUrl.pathname == '/update' && request.method == 'POST') {
+        service.updatePOST(request, response)
+    }
     // delete
     // if (requestUrl.pathname == '/delete/id' && request.method == 'DELETE') {
     //     service.create(request, response)
@@ -26,9 +33,5 @@ module.exports = http.createServer((request, response) => {
     else if (requestUrl.pathname == '/guest-book' && request.method == 'GET') {
         service.guestBook(request, response)
     }
-    // else {
-    //     response.writeHead(404);
-    //     response.write('Page Not Found!');
-    // }
 });
 

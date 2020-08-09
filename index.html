@@ -55,16 +55,53 @@
                             </a>
                         </td>
                         <td>GET</td>
-                        <td></td>
+                        <td>
+                            fill all data
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
+                        <td>
+                            <a href="http://localhost:8000/create?name=abc&comment=nodejs">
+                                /create
+                            </a>
+                        </td>
+                        <td>GET</td>
+                        <td>
+                            ?name=abc&comment=nodejs
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
                         <td>/create</td>
                         <td>POST</td>
                         <td>
                             {
                             "name": "xyz",
                             "comment" : "cai loz qe gi do"
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <a href="http://localhost:8000/update?name=abc&comment=mariadb">
+                                /update
+                            </a>
+                        </td>
+                        <td>GET</td>
+                        <td>
+                            ?name=abc&comment=mariadb
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>/update</td>
+                        <td>POST</td>
+                        <td>
+                            {
+                            "name": "abc",
+                            "comment" : "http"
                             }
                         </td>
                     </tr>
